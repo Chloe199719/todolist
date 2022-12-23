@@ -1,4 +1,5 @@
-import { addnewProject } from "./manageproject";
+import { loadProject, loadNav } from "./loadProject";
+import { addnewProject, currentProjects } from "./manageproject";
 
 const createproject = function (e) {
   e.preventDefault();
@@ -13,8 +14,12 @@ const createproject = function (e) {
     inputdesc.value,
     inputduedate.value,
     inputprio.checked,
-    {}
+    []
   );
+  loadNav(currentProjects);
 };
+
+// loadProject(createproject[0]);
+// console.log(currentProjects);
 
 export { createproject };
