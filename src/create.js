@@ -68,16 +68,24 @@ const elements = (() => {
   const span = (a, b) => {
     const span1 = document.createElement(`span`);
     span1.textContent = a;
+    if (b === undefined) return span1;
     span1.setAttribute(`id`, b);
     return span1;
   };
   const footer = () => {
     return document.createElement(`footer`);
   };
-  const button = (a) => {
+  const button = (a, b) => {
     let button1 = document.createElement(`button`);
-    button1.classList.add(a);
+    button1.textContent = a;
+    button1.classList.add(b);
     return button1;
+  };
+  const input = (a, b) => {
+    let input1 = document.createElement(`input`);
+    input1.setAttribute("type", a);
+    input1.setAttribute(`id`, b);
+    return input1;
   };
   return {
     paragraph,
@@ -96,6 +104,7 @@ const elements = (() => {
     h3,
     footer,
     button,
+    input,
   };
 })();
 

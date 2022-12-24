@@ -32,3 +32,15 @@ nav {
   background: #f76b8a;
   grid-area: nav;
 }
+main {
+  padding: 20px 100px;
+}
+main h2 {
+  text-align: center;
+  font-size: 4em;
+}
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
