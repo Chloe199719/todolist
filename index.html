@@ -7,6 +7,7 @@
     <script defer src="main.js"></script>
   </head>
   <body>
+    <div id="grayout"></div>
     <div class="wrapper">
       <header><h1>Your To do List</h1></header>
       <nav>
@@ -29,6 +30,30 @@
         <div>Add New Task</div>
       </main>
     </div>
+    <form class="allforms">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" />
+      </div>
+      <div>
+        <label for="desc">Description</label>
+        <input type="text" name="desc" id="desc" />
+      </div>
+      <div>
+        <p>Priority</p>
+        <input type="radio" name="prio" id="Low" value="low" />
+        <label for="Low">Low</label>
+        <input type="radio" name="prio" id="High" value="high" />
+        <label for="High">High</label>
+        <input type="radio" name="prio" id="Extreme" value="extreme" />
+        <label for="Extreme">Extreme</label>
+      </div>
+      <div>
+        <label for="duedate">Due Date</label>
+        <input type="date" name="duedate" id="duedate" />
+      </div>
+      <button id="addnewtaskbtn">Add New Task</button>
+    </form>
     <form>
       <label for="name">Project name</label>
       <input type="text" id="name" required />
