@@ -1,7 +1,12 @@
 import elements from "./create";
 import trash from "./trash-can.svg";
 import pencil from "./lead-pencil.svg";
-import { addnewTask, removeTask, updateItsDone } from "./taskmanager";
+import {
+  addnewTask,
+  removeTask,
+  updateItsDone,
+  updateTask,
+} from "./taskmanager";
 import { currentProjects } from "./manageproject";
 
 const loadProject = function (proj, projI) {
@@ -26,6 +31,9 @@ const loadProject = function (proj, projI) {
     });
     let span1 = elements.span(a.dueDate);
     let pencil1 = elements.img(pencil, "edit pencil", "20px");
+    pencil1.addEventListener(`click`, function (e) {
+      editForm(projI, index);
+    });
     let trash1 = elements.img(trash, `trash can`, `20px`);
     trash1.addEventListener(`click`, function (e) {
       removeTask(projI, index);
@@ -175,4 +183,78 @@ const resetDetails = function () {
   priospan.textContent = "";
   priospan.className = "Dpriority";
   duedatespan.textContent = "";
+};
+
+const editForm = function (projI, index) {
+  const edittaskform = document.querySelector(`#edittask`);
+  const textinput = document.querySelector(`#edit-title`);
+  const descinput = document.querySelector(`#edit-desc`);
+  const radiobtns = document.querySelectorAll(`input[name="edit-prio"]`);
+  const duedateinput = document.querySelector(`#edit-duedate`);
+  const sumbitedit = document.querySelector(`#submitedit`);
+  textinput.value = currentProjects[projI].task[index].title;
+  descinput.value = currentProjects[projI].task[index].description;
+  duedateinput.value = currentProjects[projI].task[index].dueDate;
+  radiobtns.forEach((a) => {
+    if (a.value === currentProjects[projI].task[index].priority) {
+      a.checked = true;
+    }
+  });
+  openeditform();
+  sumbitedit.addEventListener(`click`, function (e) {
+    e.preventDefault();
+    let prio;
+    radiobtns.forEach((a) => {
+      if (a.checked === true) {
+        prio = a.value;
+      }
+    });
+    if (
+      textinput.value !== "" &&
+      prio !== undefined &&
+      duedateinput.value !== ""
+    ) {
+      updateTask(
+        projI,
+        index,
+        textinput.value,
+        descinput.value,
+        prio,
+        duedateinput.value
+      );
+    } else {
+      alert(`Fill all required inputs`);
+    }
+    closeeditform();
+    let fromclone = edittaskform.cloneNode(true);
+    edittaskform.parentNode.replaceChild(fromclone, edittaskform);
+  });
+};
+
+const openeditform = function () {
+  const edittaskform = document.querySelector(`#edittask`);
+  const gray = document.querySelector(`#grayout`);
+  edittaskform.classList.add(`active`);
+  gray.classList.add(`active`);
+  gray.addEventListener(`click`, function (e) {
+    closeeditform();
+  });
+};
+const closeeditform = function () {
+  const edittaskform = document.querySelector(`#edittask`);
+  const gray = document.querySelector(`#grayout`);
+  const textinput = document.querySelector(`#edit-title`);
+  const descinput = document.querySelector(`#edit-desc`);
+  const radiobtns = document.querySelectorAll(`input[name="edit-prio"]`);
+  const duedateinput = document.querySelector(`#edit-duedate`);
+  edittaskform.classList.remove(`active`);
+  gray.classList.remove(`active`);
+  let clonegray = gray.cloneNode(true);
+  gray.parentNode.replaceChild(clonegray, gray);
+  textinput.value = "";
+  descinput.value = "";
+  duedateinput.value = "";
+  radiobtns.forEach((a) => {
+    a.checked = false;
+  });
 };

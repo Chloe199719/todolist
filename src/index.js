@@ -8,8 +8,8 @@ import { loadProject, loadNav } from "./loadProject";
 
 const createprojectbtn = document.querySelector(`#createProject`);
 const addprojbtn = document.querySelector(`.addproj`);
-// const testbtn = document.querySelector(`#testbtn`);
-// const testbtn1 = document.querySelector(`#testbtn1`);
+const testbtn = document.querySelector(`#testbtn`);
+const testbtn1 = document.querySelector(`#testbtn1`);
 const inbox = document.querySelector(`#inbox`);
 
 inbox.addEventListener(`click`, function (e) {
@@ -23,14 +23,28 @@ addnewProject(`Inbox`, []);
 addnewProject(`Todo List2`, []);
 addnewProject(`Todo List3`, []);
 addnewProject(`Todo List4`, []);
-addnewTask(0, `Test task`, `This is a Test task desc`, `low`, "123124", false);
-addnewTask(0, `Test task`, `This is a Test task desc`, `high`, "123123", true);
+addnewTask(
+  0,
+  `Test task`,
+  `This is a Test task desc`,
+  `low`,
+  "2022-12-31",
+  false
+);
+addnewTask(
+  0,
+  `Test task`,
+  `This is a Test task desc`,
+  `high`,
+  "2022-12-31",
+  true
+);
 addnewTask(
   0,
   `Test task`,
   `This is a Test task desc`,
   `extreme`,
-  "123123",
+  "2022-12-31",
   false
 );
 addnewTask(
@@ -38,17 +52,17 @@ addnewTask(
   `Test task`,
   `This is a Test task desc`,
   `extreme`,
-  "1233123",
+  "2022-12-31",
   false
 );
 addnewTask(1, `Test task`, `This is a Test task desc`, `low`, 123123, false);
 loadProject(currentProjects[0], 0);
 loadNav(currentProjects);
 
-// testbtn.addEventListener(`click`, function (e) {
-//   console.log(currentProjects);
-// });
+testbtn.addEventListener(`click`, function (e) {
+  console.log(currentProjects);
+});
 
-// testbtn1.addEventListener(`click`, function (e) {
-//   updateItsDone(0, 0, true);
-// });
+testbtn1.addEventListener(`click`, function (e) {
+  updateItsDone(0, 0, true);
+});

@@ -21,6 +21,14 @@ const removeTask = function (projI, taskI) {
   currentProjects[projI].task.splice(taskI, 1);
   loadProject(currentProjects[projI], projI);
 };
+
+const updateTask = function (projI, taskI, title1, desc, prio, dueDate1) {
+  currentProjects[projI].task[taskI].priority = prio;
+  currentProjects[projI].task[taskI].dueDate = dueDate1;
+  currentProjects[projI].task[taskI].description = desc;
+  currentProjects[projI].task[taskI].title = title1;
+  loadProject(currentProjects[projI], projI);
+};
 //  Updates Its Done value
 const updateItsDone = function (projI, taskI, uitsdone) {
   currentProjects[projI].task[taskI].itsdone = uitsdone;
@@ -48,4 +56,5 @@ export {
   updatePriority,
   updatedesc,
   updateTitle,
+  updateTask,
 };
