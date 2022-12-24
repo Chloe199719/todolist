@@ -1,7 +1,8 @@
 import elements from "./create";
 import trash from "./trash-can.svg";
 import pencil from "./lead-pencil.svg";
-import { removeTask, updateItsDone } from "./taskmanager";
+import { addnewTask, removeTask, updateItsDone } from "./taskmanager";
+import { currentProjects } from "./manageproject";
 
 const loadProject = function (proj, projI) {
   const main = document.querySelector(`main`);
@@ -21,8 +22,8 @@ const loadProject = function (proj, projI) {
     let divtemp = elements.div(`rightDetails`);
     let tempbtndetails = elements.button("Details", `details`);
     let span1 = elements.span(a.dueDate);
-    let pencil1 = elements.img(pencil, "20px", "20px");
-    let trash1 = elements.img(trash, `20px`, `20px`);
+    let pencil1 = elements.img(pencil, "edit pencil", "20px");
+    let trash1 = elements.img(trash, `trash can`, `20px`);
     trash1.addEventListener(`click`, function (e) {
       removeTask(projI, index);
     });
@@ -32,6 +33,10 @@ const loadProject = function (proj, projI) {
     tasklist.appendChild(temp);
   });
   const addTask = elements.li(`Add Task`);
+  addTask.addEventListener(`click`, function (e) {
+    createtaskForm(projI);
+    taskformActive(`.allforms`);
+  });
   tasklist.appendChild(addTask);
   addTask.setAttribute(`id`, `addtask`);
   main.append(elements.h2(proj.name), tasklist);
@@ -50,3 +55,77 @@ const loadNav = function (proj) {
   });
 };
 export { loadProject, loadNav };
+
+const createtaskForm = function (projIndex) {
+  const textinput = document.querySelector(`#title`);
+  const descinput = document.querySelector(`#desc`);
+  const radiobtns = document.querySelectorAll(`input[name="prio"]`);
+  const duedateinput = document.querySelector(`#duedate`);
+  const addnewtaskbtn = document.querySelector(`#addnewtaskbtn`);
+  const form = document.querySelector(`.allforms`);
+
+  addnewtaskbtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    let prio;
+    radiobtns.forEach((a) => {
+      if (a.checked === true) {
+        prio = a.value;
+      }
+    });
+    if (
+      textinput.value !== "" &&
+      prio !== undefined &&
+      duedateinput.value !== ""
+    ) {
+      addnewTask(
+        projIndex,
+        textinput.value,
+        descinput.value,
+        prio,
+        duedateinput.value,
+        false
+      );
+    } else {
+      alert(`Fill all required inputs`);
+    }
+    resettaskform();
+    loadProject(currentProjects[projIndex], projIndex);
+    formremoveActive(`.allforms`);
+    let fromclone = form.cloneNode(true);
+    form.parentNode.replaceChild(fromclone, form);
+  });
+};
+
+const taskformActive = function (a) {
+  const form = document.querySelector(a);
+  const gray = document.querySelector(`#grayout`);
+  form.classList.add(`active`);
+  gray.classList.add(`active`);
+  gray.addEventListener(`click`, function (e) {
+    formremoveActive(a);
+  });
+};
+
+const formremoveActive = function (a) {
+  const form = document.querySelector(a);
+  const gray = document.querySelector(`#grayout`);
+  form.classList.remove(`active`);
+  gray.classList.remove(`active`);
+  let clonegray = gray.cloneNode(true);
+  gray.parentNode.replaceChild(clonegray, gray);
+  resettaskform();
+};
+
+const resettaskform = function () {
+  const textinput = document.querySelector(`#title`);
+  const descinput = document.querySelector(`#desc`);
+  const radiobtns = document.querySelectorAll(`input[name="prio"]`);
+  const duedateinput = document.querySelector(`#duedate`);
+
+  textinput.value = "";
+  descinput.value = "";
+  radiobtns.forEach((a) => {
+    a.checked = false;
+  });
+  duedateinput.value = "";
+};

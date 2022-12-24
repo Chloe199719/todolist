@@ -87,6 +87,11 @@ const elements = (() => {
     input1.setAttribute(`id`, b);
     return input1;
   };
+  const label = (a, b) => {
+    let label1 = document.createElement(`label`);
+    label1.setAttribute(`for`, b);
+    label1.textContent = a;
+  };
   return {
     paragraph,
     section,
@@ -105,6 +110,7 @@ const elements = (() => {
     footer,
     button,
     input,
+    label,
   };
 })();
 
