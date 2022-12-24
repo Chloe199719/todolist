@@ -1,13 +1,15 @@
 import Project from "./projects";
 
-const currentProjects = [];
+let currentProjects = [];
 
 const addnewProject = function (name, task) {
   currentProjects.push(new Project(name, task));
+  stringfy();
 };
 
 const removeProject = function (index) {
   currentProjects.splice(index, 1);
+  stringfy();
 };
 
 const updateName = function (index, value) {
@@ -23,6 +25,21 @@ const updatedueDate = function (index, value) {
 const updatePriority = function (index, value) {
   currentProjects[index].priority = value;
 };
+
+const stringfy = function () {
+  let test1 = JSON.stringify(currentProjects);
+  window.localStorage.setItem(`currentProjects`, test1);
+};
+
+const retriveStorage = function () {
+  if (window.localStorage.currentProjects !== undefined) {
+    let tempproj = window.localStorage.currentProjects;
+    let tempproj2 = JSON.parse(tempproj);
+    currentProjects = tempproj2;
+  } else {
+    addnewProject(`Inbox`, []);
+  }
+};
 export {
   addnewProject,
   removeProject,
@@ -31,4 +48,6 @@ export {
   updatedueDate,
   updatePriority,
   currentProjects,
+  stringfy,
+  retriveStorage,
 };

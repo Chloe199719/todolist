@@ -1,5 +1,5 @@
 import { loadProject } from "./loadProject";
-import { currentProjects } from "./manageproject";
+import { currentProjects, stringfy } from "./manageproject";
 import Task from "./task";
 
 //  Creates New Task and Stores in the Project.task Array
@@ -14,12 +14,14 @@ const addnewTask = function (
   currentProjects[index].task.push(
     new Task(title, description, priority, dueDate, itsdone)
   );
+  stringfy();
 };
 
 //  Removes Task From the Task Array
 const removeTask = function (projI, taskI) {
   currentProjects[projI].task.splice(taskI, 1);
   loadProject(currentProjects[projI], projI);
+  stringfy();
 };
 
 const updateTask = function (projI, taskI, title1, desc, prio, dueDate1) {
@@ -28,11 +30,13 @@ const updateTask = function (projI, taskI, title1, desc, prio, dueDate1) {
   currentProjects[projI].task[taskI].description = desc;
   currentProjects[projI].task[taskI].title = title1;
   loadProject(currentProjects[projI], projI);
+  stringfy();
 };
 //  Updates Its Done value
 const updateItsDone = function (projI, taskI, uitsdone) {
   currentProjects[projI].task[taskI].itsdone = uitsdone;
   loadProject(currentProjects[projI], projI);
+  stringfy();
 };
 
 //  Updates  Prio Value
