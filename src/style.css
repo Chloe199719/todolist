@@ -144,7 +144,7 @@ form.active {
   background-color: yellow;
   padding: 4px 20px;
   font-weight: bold;
-  color: white;
+  color: gray;
 }
 .Dpriority.extreme {
   border: none;
