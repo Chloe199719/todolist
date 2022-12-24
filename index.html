@@ -67,27 +67,33 @@
     </form>
     <form id="edittask">
       <div>
-        <label for="title">Title*</label>
-        <input type="text" id="title" name="title" />
+        <label for="edit-title">Title*</label>
+        <input type="text" id="edit-title" name="title" />
       </div>
       <div>
-        <label for="desc">Description</label>
-        <input type="text" name="desc" id="desc" />
+        <label for="edit-desc">Description</label>
+        <input type="text" name="desc" id="edit-desc" />
       </div>
       <div>
         <p>Priority*</p>
-        <input type="radio" name="prio" id="Low" value="low" />
-        <label for="Low">Low</label>
-        <input type="radio" name="prio" id="High" value="high" />
-        <label for="High">High</label>
-        <input type="radio" name="prio" id="Extreme" value="extreme" />
-        <label for="Extreme">Extreme</label>
+        <input type="radio" name="edit-prio" id="edit-Low" value="low" />
+        <label for="edit-Low">Low</label>
+        <input type="radio" name="edit-prio" id="edit-High" value="high" />
+        <label for="edit-High">High</label>
+        <input
+          type="radio"
+          name="edit-prio"
+          id="edit-Extreme"
+          value="extreme"
+        />
+        <label for="edit-Extreme">Extreme</label>
       </div>
       <div>
-        <label for="duedate">Due Date *</label>
-        <input type="date" name="duedate" id="duedate" />
+        <label for="edit-duedate">Due Date *</label>
+        <input type="date" name="duedate" id="edit-duedate" />
       </div>
+      <button id="submitedit">Edit task</button>
     </form>
-    <!-- <button id="testbtn">test</button><button id="testbtn1">test1</button> -->
+    <button id="testbtn">test</button><button id="testbtn1">test1</button>
   </body>
 </html>
