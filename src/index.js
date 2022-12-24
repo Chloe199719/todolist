@@ -29,11 +29,25 @@ addnewProject(`Inbox`, `Make  the Tododo List`, "3days", true, []);
 addnewProject(`Todo List2`, `Make  the Tododo List`, "3days", true, []);
 addnewProject(`Todo List3`, `Make  the Tododo List`, "3days", true, []);
 addnewProject(`Todo List4`, `Make  the Tododo List`, "3days", true, []);
-addnewTask(0, `Test task`, `This is a Test task desc`, 0, "123124", false);
-addnewTask(0, `Test task`, `This is a Test task desc`, 1, "123123", true);
-addnewTask(0, `Test task`, `This is a Test task desc`, 2, "123123", false);
-addnewTask(2, `Test task`, `This is a Test task desc`, 2, "1233123", false);
-addnewTask(1, `Test task`, `This is a Test task desc`, 0, 123123, false);
+addnewTask(0, `Test task`, `This is a Test task desc`, `low`, "123124", false);
+addnewTask(0, `Test task`, `This is a Test task desc`, `high`, "123123", true);
+addnewTask(
+  0,
+  `Test task`,
+  `This is a Test task desc`,
+  `extreme`,
+  "123123",
+  false
+);
+addnewTask(
+  2,
+  `Test task`,
+  `This is a Test task desc`,
+  `extreme`,
+  "1233123",
+  false
+);
+addnewTask(1, `Test task`, `This is a Test task desc`, `low`, 123123, false);
 loadProject(currentProjects[0], 0);
 loadNav(currentProjects);
 // addnewProject(`Todo List`, `Make  the Tododo List`, "3days", true, {});

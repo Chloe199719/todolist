@@ -11,6 +11,7 @@ const loadProject = function (proj, projI) {
   tasklist.classList.add("task-list");
   proj.task.forEach((a, index) => {
     let temp = elements.li();
+    temp.classList.toggle(a.priority);
     const dev1temp = elements.div(`leftDetails`);
     let input1 = elements.input(`checkbox`, `itsdone`);
     input1.checked = a.itsdone;
@@ -23,7 +24,7 @@ const loadProject = function (proj, projI) {
     let pencil1 = elements.img(pencil, "20px", "20px");
     let trash1 = elements.img(trash, `20px`, `20px`);
     trash1.addEventListener(`click`, function (e) {
-      removeTask(projI);
+      removeTask(projI, index);
     });
     divtemp.append(tempbtndetails, span1, pencil1, trash1);
     dev1temp.append(input1, elements.span(`${a.title}`));

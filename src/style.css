@@ -42,5 +42,41 @@ main h2 {
 .task-list li {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  margin: 10px 0;
+  padding: 2px 8px;
+  background-color: darkgray;
+  font-size: 20px;
+}
+.task-list li:last-child {
+  justify-content: center;
+  background-color: #f76b8a;
+}
+.task-list .leftDetails,
+.rightDetails {
+  display: flex;
+  align-items: center;
+}
+.task-list .leftDetails span {
+  padding-left: 10px;
+}
+.task-list .leftDetails {
+  flex: 1;
+}
+.task-list .rightDetails {
+  flex: 2;
+  justify-content: right;
+}
+.task-list .rightDetails span,
+.task-list .rightDetails img,
+.task-list .rightDetails button {
+  margin: 0 20px;
+}
+.extreme {
+  border-left: 8px darkred solid;
+}
+.high {
+  border-left: 8px solid yellow;
+}
+.low {
+  border-left: 8px solid darkgreen;
 }
