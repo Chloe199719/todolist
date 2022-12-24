@@ -18,7 +18,7 @@
         </ul>
         <h2>Projects</h2>
         <ul class="projects"></ul>
-        <div>Add Project</div>
+        <div class="addproj">Add Project</div>
       </nav>
       <main>
         <!-- Sketch -->
@@ -32,7 +32,7 @@
     </div>
     <form class="allforms">
       <div>
-        <label for="title">Title</label>
+        <label for="title">Title*</label>
         <input type="text" id="title" name="title" />
       </div>
       <div>
@@ -40,7 +40,7 @@
         <input type="text" name="desc" id="desc" />
       </div>
       <div>
-        <p>Priority</p>
+        <p>Priority*</p>
         <input type="radio" name="prio" id="Low" value="low" />
         <label for="Low">Low</label>
         <input type="radio" name="prio" id="High" value="high" />
@@ -49,22 +49,45 @@
         <label for="Extreme">Extreme</label>
       </div>
       <div>
-        <label for="duedate">Due Date</label>
+        <label for="duedate">Due Date *</label>
         <input type="date" name="duedate" id="duedate" />
       </div>
       <button id="addnewtaskbtn">Add New Task</button>
     </form>
-    <form>
+    <form id="details">
+      <div><span>Title: </span> <span class="title"></span></div>
+      <div><span>Desc: </span> <span class="description"></span></div>
+      <div><span>Priority:</span> <span class="Dpriority"></span></div>
+      <div><span>Due Date:</span> <span class="dueDate"></span></div>
+    </form>
+    <form id="createproj">
       <label for="name">Project name</label>
       <input type="text" id="name" required />
-      <label for="desc">Description </label>
-      <input type="text" name="desc" id="desc" required />
-      <label for="duedate">Due Date</label>
-      <input type="date" id="duedate" />
-      <label for="priority">Is it priority?</label>
-      <input type="checkbox" name="priority" id="priority" />
       <button type="submit" id="createProject">Create new Project</button>
     </form>
-    <button id="testbtn">test</button><button id="testbtn1">test1</button>
+    <form id="edittask">
+      <div>
+        <label for="title">Title*</label>
+        <input type="text" id="title" name="title" />
+      </div>
+      <div>
+        <label for="desc">Description</label>
+        <input type="text" name="desc" id="desc" />
+      </div>
+      <div>
+        <p>Priority*</p>
+        <input type="radio" name="prio" id="Low" value="low" />
+        <label for="Low">Low</label>
+        <input type="radio" name="prio" id="High" value="high" />
+        <label for="High">High</label>
+        <input type="radio" name="prio" id="Extreme" value="extreme" />
+        <label for="Extreme">Extreme</label>
+      </div>
+      <div>
+        <label for="duedate">Due Date *</label>
+        <input type="date" name="duedate" id="duedate" />
+      </div>
+    </form>
+    <!-- <button id="testbtn">test</button><button id="testbtn1">test1</button> -->
   </body>
 </html>

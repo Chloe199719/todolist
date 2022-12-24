@@ -2,8 +2,8 @@ import Project from "./projects";
 
 const currentProjects = [];
 
-const addnewProject = function (name, desc, dueDate, priority, task) {
-  currentProjects.push(new Project(name, desc, dueDate, priority, task));
+const addnewProject = function (name, task) {
+  currentProjects.push(new Project(name, task));
 };
 
 const removeProject = function (index) {

@@ -21,6 +21,9 @@ const loadProject = function (proj, projI) {
     });
     let divtemp = elements.div(`rightDetails`);
     let tempbtndetails = elements.button("Details", `details`);
+    tempbtndetails.addEventListener(`click`, function (e) {
+      loadDetails(projI, index);
+    });
     let span1 = elements.span(a.dueDate);
     let pencil1 = elements.img(pencil, "edit pencil", "20px");
     let trash1 = elements.img(trash, `trash can`, `20px`);
@@ -128,4 +131,48 @@ const resettaskform = function () {
     a.checked = false;
   });
   duedateinput.value = "";
+};
+
+const loadDetails = function (projI, taskI) {
+  const details = document.querySelector(`#details`);
+  const titlespan = document.querySelector(`.title`);
+  const descspan = document.querySelector(`.description`);
+  const priospan = document.querySelector(`.Dpriority`);
+  const duedatespan = document.querySelector(`.dueDate`);
+
+  titlespan.textContent = currentProjects[projI].task[taskI].title;
+  descspan.textContent = currentProjects[projI].task[taskI].description;
+  priospan.textContent = currentProjects[projI].task[taskI].priority;
+  priospan.classList.add(currentProjects[projI].task[taskI].priority);
+  duedatespan.textContent = currentProjects[projI].task[taskI].dueDate;
+  loadDetailsActive(details);
+};
+
+const loadDetailsActive = function (a) {
+  const gray = document.querySelector(`#grayout`);
+  a.classList.add(`active`);
+  gray.classList.add(`active`);
+  gray.addEventListener(`click`, function (e) {
+    removeDetailsActive(a, gray);
+  });
+};
+
+const removeDetailsActive = function (a, b) {
+  a.classList.remove(`active`);
+  b.classList.remove(`active`);
+  resetDetails();
+  let clonegray = b.cloneNode(true);
+  b.parentNode.replaceChild(clonegray, b);
+};
+
+const resetDetails = function () {
+  const titlespan = document.querySelector(`.title`);
+  const descspan = document.querySelector(`.description`);
+  const priospan = document.querySelector(`.Dpriority`);
+  const duedatespan = document.querySelector(`.dueDate`);
+  titlespan.textContent = "";
+  descspan.textContent = "";
+  priospan.textContent = "";
+  priospan.className = "Dpriority";
+  duedatespan.textContent = "";
 };
