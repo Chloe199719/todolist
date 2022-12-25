@@ -17,8 +17,8 @@ body {
   grid-template-areas:
     "head head"
     "nav main";
-  grid-template-columns: 250px 1fr;
-  grid-template-rows: 100px 1fr;
+  grid-template-columns: 1fr 3.5fr;
+  grid-template-rows: 180px 1fr;
 }
 
 header {
@@ -33,14 +33,64 @@ header {
 nav {
   background: #f76b8a;
   grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
 }
+hr {
+  border: 1px black solid;
+  margin: 15px 0;
+}
+nav li {
+  font-size: 30px;
+  padding: 5px 5px;
+  display: flex;
+  align-items: center;
+  transition: 200ms ease-in-out;
+}
+
+nav li span {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
+nav li:hover {
+  background-color: #132743;
+  color: white;
+}
+
+nav h2 {
+  font-size: 2em;
+  padding: 5px 5px;
+}
+
 main {
   padding: 20px 100px;
+}
+ul {
+  list-style: none;
 }
 main h2 {
   text-align: center;
   font-size: 4em;
 }
+svg {
+  transition: 200ms ease-in-out;
+}
+svg:hover {
+  border: 1px white solid;
+}
+
+nav .addproj {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 5px 5px;
+}
+
+nav .addproj:hover {
+  background-color: #66bfbf;
+}
+
 .task-list li {
   display: flex;
   justify-content: space-between;

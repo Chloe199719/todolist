@@ -1,3 +1,4 @@
+import { loadNav } from "./loadProject";
 import Project from "./projects";
 
 let currentProjects = [];
@@ -9,6 +10,7 @@ const addnewProject = function (name, task) {
 
 const removeProject = function (index) {
   currentProjects.splice(index, 1);
+  loadNav(currentProjects);
   stringfy();
 };
 
