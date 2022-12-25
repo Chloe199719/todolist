@@ -8,6 +8,6 @@ Add Show tasks due Task Today
 Add Show tasks due This week
 Add a Confirm on Deleting Project
 
-#Image
+# Image
 
 <img src="https://cdn.discordapp.com/attachments/292671150373339137/1056607955547594833/todolistimg.png">
