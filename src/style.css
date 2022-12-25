@@ -8,7 +8,8 @@
 
 body {
   background: #eaf6f6;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Times New Roman", Times, serif;
+  color: #dbd8e3;
 }
 .wrapper {
   min-height: calc(100vh - 50px);
@@ -22,20 +23,29 @@ body {
 }
 
 header {
-  background: #66bfbf;
+  /* background: #66bfbf; */
+  background: #404258;
+  color: #dbd8e3;
   grid-area: head;
   display: flex;
   align-items: center;
   padding: 0px 50px;
   font-size: 2em;
+  border-bottom: 1px solid black;
 }
 
+button {
+  transition: 200ms ease-in-out;
+}
 nav {
-  background: #f76b8a;
+  /* background: #f76b8a; */
+  background: #474e68;
   grid-area: nav;
   display: flex;
   flex-direction: column;
   padding: 40px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }
 hr {
   border: 1px black solid;
@@ -66,6 +76,8 @@ nav h2 {
 
 main {
   padding: 20px 100px;
+  background: #6b728e;
+  border-bottom: 1px solid black;
 }
 ul {
   list-style: none;
@@ -96,7 +108,7 @@ nav .addproj:hover {
   justify-content: space-between;
   margin: 10px 0;
   padding: 2px 8px;
-  background-color: darkgray;
+  background-color: #474e68;
   font-size: 20px;
 }
 .task-list li:last-child {
@@ -176,7 +188,46 @@ form.active {
   top: 50%;
   left: 50%;
 }
+#createproj {
+  display: flex;
+  align-items: center;
+}
+#createproj label,
+#createproj input {
+  margin: 0 10px;
+  font-weight: bold;
+}
+#createproj input {
+  height: 35px;
+  outline: none;
+  border: 2px black solid;
+  padding: 5px;
+  font-size: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#createproj input:focus {
+  border: 2px blue solid;
+}
 
+#createProject {
+  font-weight: bold;
+  padding: 5px 10px;
+  background-color: #10b981;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  margin: 0 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border: 1px black solid;
+}
+#createProject:hover {
+  transform: translate(0, 2px);
+  color: white;
+}
+#createProject:active {
+  transform: translate(0, -2px);
+}
 /* .allforms input {
   opacity: 0;
   width: 1px;
