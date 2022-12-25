@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik+80s+Fade&display=swap");
+/* Normalize Css */
+
 * {
   margin: 0;
   padding: 0;
@@ -56,6 +58,7 @@ nav li {
   padding: 5px 5px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   transition: 200ms ease-in-out;
 }
 
@@ -90,7 +93,7 @@ svg {
   transition: 200ms ease-in-out;
 }
 svg:hover {
-  border: 1px white solid;
+  color: darkgray;
 }
 
 nav .addproj {
@@ -100,20 +103,28 @@ nav .addproj {
 }
 
 nav .addproj:hover {
-  background-color: #66bfbf;
+  background-color: #064663;
 }
 
 .task-list li {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
-  padding: 2px 8px;
+  padding: 10px 8px;
   background-color: #474e68;
   font-size: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.task-list li:hover {
+  background-color: #404258;
 }
 .task-list li:last-child {
   justify-content: center;
-  background-color: #f76b8a;
+  background-color: #041c32;
+}
+.task-list li:last-child:hover {
+  background-color: #064663;
 }
 .task-list .leftDetails,
 .rightDetails {
@@ -135,13 +146,13 @@ nav .addproj:hover {
 .task-list .rightDetails button {
   margin: 0 20px;
 }
-.extreme {
+.task-list li.extreme {
   border-left: 8px darkred solid;
 }
-.high {
+.task-list li.high {
   border-left: 8px solid yellow;
 }
-.low {
+.task-list li.low {
   border-left: 8px solid darkgreen;
 }
 
@@ -180,6 +191,7 @@ form {
   max-width: 80%;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   transition: 300ms ease-in-out;
+  color: black;
 
   /* height: 200px; */
 }
