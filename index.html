@@ -54,7 +54,7 @@
         <label for="duedate">Due Date *</label>
         <input type="date" name="duedate" id="duedate" />
       </div>
-      <button id="addnewtaskbtn">Add New Task</button>
+      <div><button id="addnewtaskbtn">Add New Task</button></div>
     </form>
     <form id="details">
       <div><span>Title: </span> <span class="title"></span></div>
@@ -73,28 +73,28 @@
         <input type="text" id="edit-title" name="title" />
       </div>
       <div>
-        <label for="edit-desc">Description</label>
+        <label for="edit-desc">Description: </label>
         <input type="text" name="desc" id="edit-desc" />
       </div>
       <div>
         <p>Priority*</p>
         <input type="radio" name="edit-prio" id="edit-Low" value="low" />
-        <label for="edit-Low">Low</label>
+        <label style="color: greenyellow" for="edit-Low">Low</label>
         <input type="radio" name="edit-prio" id="edit-High" value="high" />
-        <label for="edit-High">High</label>
+        <label style="color: yellow" for="edit-High">High</label>
         <input
           type="radio"
           name="edit-prio"
           id="edit-Extreme"
           value="extreme"
         />
-        <label for="edit-Extreme">Extreme</label>
+        <label style="color: red" for="edit-Extreme">Extreme</label>
       </div>
       <div>
         <label for="edit-duedate">Due Date *</label>
         <input type="date" name="duedate" id="edit-duedate" />
       </div>
-      <button id="submitedit">Edit task</button>
+      <div><button id="submitedit">Edit task</button></div>
     </form>
     <!-- <button id="testbtn">test</button><button id="testbtn1">test1</button> -->
   </body>
