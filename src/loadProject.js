@@ -9,6 +9,7 @@ import {
 } from "./taskmanager";
 import { currentProjects, removeProject } from "./manageproject";
 
+// Loads the Selected Project into the  main area
 const loadProject = function (proj, projI) {
   const main = document.querySelector(`main`);
   main.textContent = "";
@@ -30,11 +31,11 @@ const loadProject = function (proj, projI) {
       loadDetails(projI, index);
     });
     let span1 = elements.span(a.dueDate);
-    let pencil1 = elements.img(pencil, "edit pencil", "20px");
+    let pencil1 = elements.img(pencil, "edit pencil", "25px");
     pencil1.addEventListener(`click`, function (e) {
       editForm(projI, index);
     });
-    let trash1 = elements.img(trash, `trash can`, `20px`);
+    let trash1 = elements.img(trash, `trash can`, `25px`);
     trash1.addEventListener(`click`, function (e) {
       removeTask(projI, index);
     });
@@ -52,6 +53,8 @@ const loadProject = function (proj, projI) {
   addTask.setAttribute(`id`, `addtask`);
   main.append(elements.h2(proj.name), tasklist);
 };
+
+//Loads side nav with Existing Projects
 
 const loadNav = function (proj) {
   const projects = document.querySelector(`.projects`);
@@ -74,6 +77,8 @@ const loadNav = function (proj) {
   });
 };
 export { loadProject, loadNav };
+
+//  Opens a Form  to Create a new task and sumbits it
 
 const createtaskForm = function (projIndex) {
   const textinput = document.querySelector(`#title`);
@@ -115,6 +120,8 @@ const createtaskForm = function (projIndex) {
   });
 };
 
+// Makes the Form visible
+
 const taskformActive = function (a) {
   const form = document.querySelector(a);
   const gray = document.querySelector(`#grayout`);
@@ -125,6 +132,7 @@ const taskformActive = function (a) {
   });
 };
 
+//  Makes the taskForm invisible and Cleans it
 const formremoveActive = function (a) {
   const form = document.querySelector(a);
   const gray = document.querySelector(`#grayout`);
@@ -135,6 +143,7 @@ const formremoveActive = function (a) {
   resettaskform();
 };
 
+//  Cleans the Task form
 const resettaskform = function () {
   const textinput = document.querySelector(`#title`);
   const descinput = document.querySelector(`#desc`);
@@ -148,7 +157,7 @@ const resettaskform = function () {
   });
   duedateinput.value = "";
 };
-
+//  Shows Details of the Tasks clicked
 const loadDetails = function (projI, taskI) {
   const details = document.querySelector(`#details`);
   const titlespan = document.querySelector(`.title`);
@@ -164,23 +173,27 @@ const loadDetails = function (projI, taskI) {
   loadDetailsActive(details);
 };
 
+//  Loads the Form details
 const loadDetailsActive = function (a) {
   const gray = document.querySelector(`#grayout`);
-  a.classList.add(`active`);
+  const details = document.querySelector(`#details`);
+  details.classList.add(`active`);
   gray.classList.add(`active`);
   gray.addEventListener(`click`, function (e) {
-    removeDetailsActive(a, gray);
+    removeDetailsActive(details);
   });
 };
-
-const removeDetailsActive = function (a, b) {
+//  Unloads the form Details
+const removeDetailsActive = function (a) {
+  const gray = document.querySelector(`#grayout`);
   a.classList.remove(`active`);
-  b.classList.remove(`active`);
+  gray.classList.remove(`active`);
   resetDetails();
-  let clonegray = b.cloneNode(true);
-  b.parentNode.replaceChild(clonegray, b);
+  let clonegray = gray.cloneNode(true);
+  gray.parentNode.replaceChild(clonegray, gray);
 };
 
+// Removes data from Details Form after hiding
 const resetDetails = function () {
   const titlespan = document.querySelector(`.title`);
   const descspan = document.querySelector(`.description`);
@@ -193,6 +206,7 @@ const resetDetails = function () {
   duedatespan.textContent = "";
 };
 
+//  Has the Data of clicked task avaible to edit
 const editForm = function (projI, index) {
   const edittaskform = document.querySelector(`#edittask`);
   const textinput = document.querySelector(`#edit-title`);
@@ -239,6 +253,7 @@ const editForm = function (projI, index) {
   });
 };
 
+//  Open Edit Form
 const openeditform = function () {
   const edittaskform = document.querySelector(`#edittask`);
   const gray = document.querySelector(`#grayout`);
@@ -248,6 +263,8 @@ const openeditform = function () {
     closeeditform();
   });
 };
+
+//  Close Edit form
 const closeeditform = function () {
   const edittaskform = document.querySelector(`#edittask`);
   const gray = document.querySelector(`#grayout`);

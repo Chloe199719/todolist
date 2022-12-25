@@ -1,4 +1,4 @@
-import _ from "lodash";
+//Creates a Project
 
 class Project {
   constructor(name, task) {

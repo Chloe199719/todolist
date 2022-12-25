@@ -1,3 +1,5 @@
+// Creates a Task
+
 class Task {
   constructor(title, description, priority, dueDate, itsdone) {
     this.title = title;
